@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Pricing Page</title>
+ <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+ <link rel="stylesheet" type="text/css" href="plan.css"/>
+ <style>
+ .button-center {
+ display: block;
+ margin: auto;
+ }
+ .receipt {
+ border: 1px solid #000;
+ padding: 10px;
+ margin-top: 20px;
+ background-color: #f8f8f8;
+ }
+ .total-receipt {
+ border: 1px solid #000;
+ padding: 10px;
+ margin-top: 20px;
+ background-color: #f8f8f8;
+ width: 100%;
+ }
+ </style>
+</head>
+<body class="bg-black">
+ <section class="bg-black min-h-screen text-white">
+ <div class="flex justify-center items-center h-screen">
+ <div class="price bg-white text-black p-6 m-4 w-64 rounded-lg shadow-lg flex flex-col justify-center items-start">
+ <p class="type text-md">Historical</p>
+ <h2 class="text-5xl font-bold" id="price1">$8000</h2>
+ <input type="number" id="quantity1" min="1" value="1" class="text-white">
+ <ul><li>7 days trip</li>
+ <li>4 stars hotel</li>
+ <li>10+ museums</li></ul>
+ <button class="mt-4 px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 button-center" id="select-plan-button1">Select Plan</button>
+ <span id="total1">$0</span>
+ </div>
+ <div class="price bg-white text-black p-6 m-4 w-64 rounded-lg shadow-lg flex flex-col justify-center items-start h-full>
+ <p class="type text-md">Culinary</p>
+ <h2 class="text-5xl font-bold" id="price2">$7200</h2>
+ <input type="number" id="quantity2" min="1" value="1" class="text-white">
+ <ul><li>7 days trip</li>
+ <li>4 stars hotel</li>
+ <li>Fine dining</li></ul>
+ <button class="mt-4 px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 button-center" id="select-plan-button2">Select Plan</button>
+ <span id="total2">$0</span>
+ </div>
+ </div>
+ <div class="total-receipt" id="total-receipt">Total: $0</div>
+ </section>
+ <script>
+ var total1 = 0;
+ var total2 = 0;
+
+ document.querySelector('#select-plan-button1').addEventListener('click', function() {
+ var quantity = document.querySelector('#quantity1').value;
+ var price = parseFloat(document.querySelector('#price1').innerText.replace('$', ''));
+ total1 += quantity * price;
+ document.querySelector('#total1').innerText = 'Your total is $' + total1.toFixed(2);
+ document.querySelector('#total-receipt').innerText = 'Total: $' + (total1 + total2).toFixed(2);
+ });
+
+ document.querySelector('#select-plan-button2').addEventListener('click', function() {
+ var quantity = document.querySelector('#quantity2').value;
+ var price = parseFloat(document.querySelector('#price2').innerText.replace('$', ''));
+ total2 += quantity * price;
+ document.querySelector('#total2').innerText = 'Your total is $' + total2.toFixed(2);
+ document.querySelector('#total-receipt').innerText = 'Total: $' + (total1 + total2).toFixed(2);
+ });
+ </script>
+</body>
+</html>

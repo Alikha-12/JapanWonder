@@ -1,0 +1,24 @@
+.signInBtn{
+    background: #BB3848;
+}
+.signInBtn:hover{
+    background-color: #d36f7a;
+    cursor: pointer;
+}
+.signInBtn:focus{
+    background-color: #d36f7a;
+}
+
+.tokyo{
+    filter: brightness(70%);
+    filter: grayscale(20%);
+}
+.name{
+    background-color: #333333;
+    border-color: #333333;
+    color: white;
+}
+
+.name:focus{
+    border-color: #E77C03;
+}

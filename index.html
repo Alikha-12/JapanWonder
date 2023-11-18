@@ -1,39 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="styles.css"/>
-    <title>Home</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" type="text/css" href="styles.css"/>
+   <title>Home</title>
 </head>
 <body>
 
-    <div class="section1">
-        <div class="text">JAPAN</div>
-    </div>
-    
-    <div class="section2" id="belowContainer">
-        <div class="other">
-            <p>Land of the rising sun.</p>
-            <img src="image/shrine.jpeg" alt="Shrine Image" class="pin">
-        </div>
-    </div>
+   <div class="section1">
+       <div class="text">JAPAN</div>
+   </div>
+   
+   <div class="section2" id="belowContainer">
+       <img src="image/shrine.jpeg" alt="Shrine" class="shrine">
+       <p class="desc overlap-text">land <br>of the<br> rising <br>sun</p>
+   </div>
+   <script>window.addEventListener('scroll', function() {
+       let st = window.pageYOffset || document.documentElement.scrollTop;
+       if (st > lastScrollTop) {
+         // User is scrolling down
+         document.querySelector('.desc').classList.add('animate');
+         document.querySelector('.shrine').classList.add('animate');
+       } else {
+         // User is scrolling up
+         document.querySelector('.desc').classList.remove('animate');
+         document.querySelector('.shrine').classList.remove('animate');
+       }
+       lastScrollTop = st <= 0 ? 0 : st;
+   });
+   </script>
+   <div class="section3">
+       <div class="text-container">
+           <p class="join overlap-text">LET US ORGANIZE YOUR <br>TRIP TO JAPAN<br></p>
+           <button class="start" id="startButton">START</button>
+       </div>
+   </div>
 
-    <!-- Include React and ReactDOM scripts -->
-    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+   <!-- Login popup -->
 
-    <!-- Include your Below.js script -->
-    <script src="Pages/Landing/Below.js"></script>
 
-    <!-- Render the Below component into the specified container -->
-    <script>
-        // Wait for the DOM to be fully loaded before rendering the Below component
-        document.addEventListener("DOMContentLoaded", function() {
-          const BelowContainer = document.getElementById('belowContainer');
-          ReactDOM.render(React.createElement(Below), BelowContainer);
-        });
-    </script>
+   <!-- Include React and ReactDOM scripts -->
+   <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+   <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
 
+   <!-- Include your Below.js script -->
+
+   <!-- Render the Below component into the specified container -->
+   <script>
+       // Wait for the DOM to be fully loaded before rendering the Below component
+       document.getElementById("startButton").addEventListener("click", function() {
+   location.href="Pages/GetStarted/login.html";
+});
+
+
+
+   </script>
 </body>
 </html>

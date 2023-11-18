@@ -8,7 +8,7 @@
 }
 @font-face {
     font-family: modern;
-    src: url(Font/simpletix.otf);
+    src: url(Font/Overwave.ttf);
 }
 html{
     height: 100vh;
@@ -27,7 +27,7 @@ body{
     overflow-y: scroll;
 }
 
-.section1, .section2{
+.section1, .section2, .section3{
     width: 100%;
     min-height: 100vh;
     position: relative;
@@ -67,10 +67,18 @@ body{
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0), 5px 5px 70px rgba(255, 255, 255, 0.5);
     transform: scale(1,1,1) translate(-50%, 10%);
 }
+.join{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 100px;
+    justify-content: center;
+    justify-self: center;
+}
 .section2{
     background: #222028;
     display: flex;
-    align-items: center; /* Align items vertically in the center */
+    align-items: center;
+    width: 100%;
+    height: 100%; /* Align items vertically in the center */
 }
 .other{
     margin-right: 10px;
@@ -79,12 +87,88 @@ body{
     font-size: 50px;
     color: white;
 }
+.desc{
+    font-family: modern;
+    color: #f2edd3;
+    font-size: 150px;
+    margin-left: -150px;
+    animation: slidein 10s forwards;
+    padding-top: 80px;
+    padding-bottom: 40px;
+    animation: bounce 1s infinite;
+}
 /* .other p {
     margin: 0;
     padding-top: 10px;
 } */
+.section3{
+    background: #151417;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Ensure section3 takes the full viewport height */
+}
+
+
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center; /* Align text in the center */
+}
+
+.join {
+    color: white;
+    margin: 0; /* Remove default margin */
+}
+
+.start {
+    background-color: #DC5246;
+    margin-top: 20px;
+    font-size: 20px; /* Adjust the font size */
+    padding: 10px 20px; /* Adjust the padding (top/bottom and left/right) */
+    border-radius: 10%;
+    color: white;
+}
+
+
 
 .pin{
     margin-left: 10px;
 
 }
+.shrine {
+    display: flex;
+    align-items: center;
+    padding-top: 20px;
+    padding-left: 150px;
+    animation: slidein 2s forwards;
+ }
+ 
+ @keyframes slidein {
+    from {
+    transform: translateX(-100%);
+    }
+    to {
+    transform: translateX(0);
+    }
+   }
+   @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-30px);
+    }
+    60% {
+      transform: translateY(-15px);
+    }
+   }
+   
+   
+   .animate {
+    animation: slidein 1s forwards;
+   }
+   
