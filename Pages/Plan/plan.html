@@ -51,24 +51,18 @@
  <div class="total-receipt" id="total-receipt">Total: $0</div>
  </section>
  <script>
- var total1 = 0;
- var total2 = 0;
+  var total = [0, 0];
 
- document.querySelector('#select-plan-button1').addEventListener('click', function() {
- var quantity = document.querySelector('#quantity1').value;
- var price = parseFloat(document.querySelector('#price1').innerText.replace('$', ''));
- total1 += quantity * price;
- document.querySelector('#total1').innerText = 'Your total is $' + total1.toFixed(2);
- document.querySelector('#total-receipt').innerText = 'Total: $' + (total1 + total2).toFixed(2);
- });
+  for (let i = 0; i < total.length; i++) {
+    document.querySelector(`#select-plan-button${i+1}`).addEventListener('click', function() {
+      var quantity = document.querySelector(`#quantity${i+1}`).value;
+      var price = parseFloat(document.querySelector(`#price${i+1}`).innerText.replace('$', ''));
+      total[i] += quantity * price;
+      document.querySelector(`#total${i+1}`).innerText = 'Your total is $' + total[i].toFixed(2);
+      document.querySelector('#total-receipt').innerText = 'Total: $' + (total[0] + total[1]).toFixed(2);
+    });
+  }
+</script>
 
- document.querySelector('#select-plan-button2').addEventListener('click', function() {
- var quantity = document.querySelector('#quantity2').value;
- var price = parseFloat(document.querySelector('#price2').innerText.replace('$', ''));
- total2 += quantity * price;
- document.querySelector('#total2').innerText = 'Your total is $' + total2.toFixed(2);
- document.querySelector('#total-receipt').innerText = 'Total: $' + (total1 + total2).toFixed(2);
- });
- </script>
 </body>
 </html>
